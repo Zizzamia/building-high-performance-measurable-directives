@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html ng-app="talkApp">
+<head>
+  <meta charset="utf-8">
+  <title>#ngTasty - Building high performance measurable directives</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body ng-controller="TalkCtrl">
+  <article>
+    <section data-bespoke-state="bighero">
+      <div class="content">
+        <h2>#ngTasty</h2>
+        <h2>Building high performance<br /> measurable directives</h2>
+        <div class="byline">
+          <div class="classy">
+            by Leonardo Zizzamia
+          </div>
+        </div>
+        <div class="profile">
+          <div class="rounded-image">
+            <img src="img/leo.jpeg">
+          </div>
+          <h3>@zizzamia</h3>
+        </div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <h2>AngularJS at Twitter</h2>
+        <img src="img/angularjs-logo.png" 
+        style="opacity:0.9;height:220px;display:inline-block;margin:0 20px;">
+        <img src="img/twitter_logo_blue.png" 
+        style="opacity:0.9;height:180px;display:inline-block;margin:0 20px;
+        vertical-align:14px;">
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <h2>#ngTasty</h2>
+        <div class="byline">
+          <div class="classy">
+            Is an open source collection of UI components used in my team
+          </div>
+        </div>
+        <a href="https://github.com/Zizzamia/ng-tasty" target="_blank">
+          <img src="img/ng-tasty-github.jpg" style="width:800px" />
+        </a>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-text">
+      <div class="content">
+        <h2>There were few problems</h2>
+        <div class="byline">
+          <div class="classy">
+            No shared components available
+          </div>
+        </div>
+        <div class="byline">
+          <div class="classy">
+            No shared architecture
+          </div>
+        </div>
+        <div class="byline">
+          <div class="classy">
+            No communication between teams
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-text">
+      <div class="content">
+        <div class="byline">
+          <div class="classy">
+            In November born the
+          </div>
+        </div>
+        <h2>Angular group at Twitter</h2>
+        <div class="byline">
+          <div class="classy">
+            With the main goal to create 
+          </div>
+        </div>
+         <div class="byline">
+          <div class="classy">
+            a collection of share UI components
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <img src="img/ngTwitter_logo_blue.png" style="opacity:0.9">
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-text">
+      <div class="content">
+        <h2>The main goals are</h2>
+        <div class="byline">
+          <div class="classy">
+            easy to reuse
+          </div>
+        </div>
+        <div class="byline">
+          <div class="classy">
+            easy to test
+          </div>
+        </div>
+        <div class="byline">
+          <div class="classy">
+            easy to benchmark
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <h2>Benchpress</h2>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <div class="byline">
+          <div class="classy">
+            There is some
+          </div>
+        </div>
+        <h2>repeatedly manual work</h2>
+        <div class="byline">
+          <div class="classy">
+            to do
+          </div>
+        </div>
+        <h2>to create benchmark version</h2>
+        <div class="byline">
+          <div class="classy">
+            by version
+          </div>
+        </div>
+        <h2>by version</h2>
+        <div class="unbrokenline"></div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>Now I want show you the way we do in ngTasty</p>
+        <p>We have a Yeoman generator help us to create benchmark</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="code">
+      <div class="content">
+        <h3>Create benchmark of specific bower version</h3>
+        <pre ng-non-bindable><code class="language-javascript">npm install generator-benchpress
+
+yo benchpress:external ng-tasty#0.5.0
+</code></pre>
+      </div>
+    </section>
+
+    <section data-bespoke-state="code">
+      <div class="content">
+        <h3>Run benchmark</h3>
+        <pre ng-non-bindable><code class="language-javascript">gulp build.js.cjs
+
+gulp serve.js.prod serve.js.dart2js
+
+protractor protractor-js.conf.js --spec ng-tasty-0-5-0 --benchmark
+</code></pre>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>Here I’m creating a benchmark of three main table directive,
+        ng-grid / ng-table / ng-tasty</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>Building the benchmark</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>As you can see now we can easily understand performance between table.</p>
+        <p>ng-grid is 50ms, ng-table 100ms, ng-tasty 18ms</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>Let’s something way more cool, like how everyone can improve the performance by disabling the log</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>Running the benchmark</p>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>What about if I’m debugging my directive and see the difference in run-time, we notice that to run a benchmark you need call</p>
+        <ul>
+          <li>benchpress build</li>
+          <li>benchpress run</li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-title">
+      <div class="content">
+        <p>We can use this `gulp benchpress` and will watch all the change of dist, and update the static assets of the benchmark</p>
+      </div>
+    </section>
+    
+    <section data-bespoke-state="full-text">
+      <div class="content">
+        <h3>#ThankYou</h3>
+        <div class="byline">
+          <div class="classy">
+            grazie!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-bespoke-state="final">
+      <div class="content">
+        <div class="byline">
+          <div class="classy">
+            This has been
+          </div>
+        </div>
+        <h2>#ngTasty</h2>
+        <h2>Building high performance<br /> measurable directives</h2>
+        <div class="byline">
+          <div class="classy">
+            by Leonardo Zizzamia
+          </div>
+        </div>
+        <div class="profile">
+          <div class="rounded-image">
+            <img src="img/leo.jpeg">
+          </div>
+          <h3>@zizzamia</h3>
+        </div>
+      </div>
+    </section>
+
+  </article>
+  <script type="text/javascript">
+    WebFontConfig = {
+      google: { families: [ 'Tauri::latin', 'Alegreya:400italic:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+  </script>
+  <script src="js/bespoke.js"></script>
+  <script src="js/prism.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/deck.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/app.xss.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/ng-tasty/ng-tasty-tpls.js"></script>
+  <script>
+    angular.module('talkApp', [])
+    .config(function ($compileProvider) {
+      $compileProvider.debugInfoEnabled(false);
+    })
+    .controller('TalkCtrl', function ($scope) {
+      $scope.talk = {
+        demoTime: 'Demo time'
+      }
+    })
+  </script>
+</body>
+</html>
