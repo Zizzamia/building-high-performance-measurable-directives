@@ -30,11 +30,11 @@
 
     <section data-bespoke-state="full-text">
       <div class="content">
-        <h2>AngularJS at Twitter</h2>
+        <h2>Angular at Twitter</h2>
         <img src="img/angularjs-logo.png" 
-        style="opacity:0.9;height:220px;display:inline-block;margin:0 20px;">
+        style="opacity:0.8;height:220px;display:inline-block;margin:0 20px;">
         <img src="img/twitter_logo_blue.png" 
-        style="opacity:0.9;height:180px;display:inline-block;margin:0 20px;
+        style="opacity:0.8;height:180px;display:inline-block;margin:0 20px;
         vertical-align:14px;">
       </div>
     </section>
@@ -170,7 +170,7 @@
 yo benchpress ng-tasty
 </code></pre>
         <p style="text-align:left">You get this</p>
-        <pre ng-non-bindable><code class="language-javascript">create benchmarks/protractorBenchmarks.conf.js
+        <pre ng-non-bindable><code class="language-javascript">create benchmarks/protractor.conf.js
 create benchmarks/ng-tasty/index.html
 create benchmarks/ng-tasty/benchmark.spec.js</code></pre>
       </div>
@@ -179,19 +179,8 @@ create benchmarks/ng-tasty/benchmark.spec.js</code></pre>
     <section data-bespoke-state="code">
       <div class="content">
         <h2>Running a basic benchmark</h2>
-        <pre ng-non-bindable><code class="language-javascript">
-protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty/benchmark.spec.js
+        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractor.conf.js --specs benchmarks/ng-tasty/benchmark.spec.js
 </code></pre>
-      </div>
-    </section>
-
-    <section data-bespoke-state="code">
-      <div class="content">
-        <h4>Results of basic benchmark</h4>
-        <pre ng-non-bindable><code class="language-markup">
-      gcAmount | gcAmountInScript |       render |         script
-============== | ================ | ============ | ==============
-   268.20±154% |        0.00±NaN% |     9.63±16% |      1.53±18%</code></pre>
       </div>
     </section>
 
@@ -235,36 +224,39 @@ protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty/b
 
     <section data-bespoke-state="code">
       <div class="content">
-        <h2>Running a benchmark on the dist folder</h2>
-        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/dist/benchmark.spec.js
-</code></pre>
-
-        <p>To see the case we are testing we can run</p>
+        <h3>Prepare a benchmark on the dist</h3>
+        <p style="text-align:left">To see the case we are testing we can run</p>
         <pre ng-non-bindable><code class="language-javascript">http-server -p 8000</code></pre>
-        <p>And visit</p>
+        <br />
+        <p style="text-align:left">And visit</p>
         <pre ng-non-bindable><code class="language-javascript">http://localhost:8000/benchmarks/dist/</code></pre>
       </div>
     </section>
 
     <section data-bespoke-state="code">
       <div class="content">
+        <h3>Running a benchmark on the dist</h3>
+        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractor.conf.js --specs benchmarks/dist/benchmark.spec.js
+</code></pre>
+      </div>
+    </section>
+
+    <section data-bespoke-state="code">
+      <div class="content">
         <h4>Running Benchpress on an ngTasty large table</h4>
-        <p style="font-size:18px;text-align:left;padding-left:32px">watch-resource="reference"</p>
-        <pre ng-non-bindable><code class="language-markup">
-      gcAmount | gcAmountInScript |       render |         script
-============== | ================ | ============ | ==============
-   665.45±200% |        0.00±NaN% |    18.11±27% |      12.31±16%</code></pre>
+        <br />
+        <p style="font-size:18px;text-align:left;padding-left:8px">watch-resource="reference"</p>
+        <pre ng-non-bindable><code class="language-markup bigger">      gcAmount | gcAmountInScript |       render |        script
+============== | ================ | ============ | =============
+        423.69 |             0.00 |        11.56 |          9.45</code></pre>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">watch-resource="collection"</p>
-        <pre ng-non-bindable><code class="language-markup">
-      gcAmount | gcAmountInScript |       render |         script
-============== | ================ | ============ | ==============
-   665.45±200% |        0.00±NaN% |    18.11±27% |      12.31±16%</code></pre>
+        <br />
+        <p style="font-size:18px;text-align:left;padding-left:8px">watch-resource="collection"</p>
+        <pre ng-non-bindable><code class="language-markup bigger">        665.45 |             0.00 |        18.11 |         12.31</code></pre>
         
-
-        <p style="font-size:18px;text-align:left;padding-left:32px">watch-resource="equality"</p>
-        <pre ng-non-bindable><code class="language-markup">
-  24713.96±30% |     30886.16±44% |     15.03±20% |      86.66±4%</code></pre>
+        <br />
+        <p style="font-size:18px;text-align:left;padding-left:8px">watch-resource="equality"</p>
+        <pre ng-non-bindable><code class="language-markup bigger">      51433.72 |        108760.91 |        10.73 |        168.06</code></pre>
       </div>
     </section>
 
@@ -284,18 +276,11 @@ protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty/b
     <section data-bespoke-state="code">
       <div class="content">
         <h3>Creating a benchmark for specific bower versions</h3>
-        <pre ng-non-bindable><code class="language-javascript">yo benchpress:external dist ng-tasty#0.5.0
-
-yo benchpress:external dist ng-tasty#0.4.0
-
-yo benchpress:external dist ng-tasty#0.3.0
+        <br />
+        <pre ng-non-bindable><code class="language-javascript">yo benchpress:external dist ng-tasty#0.4.0
 </code></pre>
-        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty-0-5-0/benchmark.spec.js
-
-protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty-0-4-0/benchmark.spec.js
-
-protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty-0-3-0/benchmark.spec.js
-</code></pre>
+        <br />
+        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractor.conf.js --specs benchmarks/ng-tasty-0-4-0/benchmark.spec.js</code></pre>
       </div>
     </section>
 
@@ -303,61 +288,67 @@ protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty-0
       <div class="content">
         <h4>Running Benchpress on an ngTasty large table</h4>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.5.1</p>
-        <pre ng-non-bindable><code class="language-markup">
-      gcAmount | gcAmountInScript |       render |         script
-============== | ================ | ============ | ==============
-   665.45±200% |        0.00±NaN% |    18.11±27% |      12.31±16%</code></pre>
+        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.5.1 (master)</p>
+        <pre ng-non-bindable><code class="language-markup bigger">      gcAmount | gcAmountInScript |       render |        script
+============== | ================ | ============ | =============
+      51503.28 |             0.00 |        11.08 |        172.02</code></pre>
         
         <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.5.0</p>
-        <pre ng-non-bindable><code class="language-markup">
-  29376.42±15% |     38718.77±27% |     11.82±11% |      112.92±2%</code></pre>
+        <pre ng-non-bindable><code class="language-markup bigger">      29358.08 |         38678.04 |        11.37 |        108.99</code></pre>
 
         <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.4.0</p>
-        <pre ng-non-bindable><code class="language-markup">
-  32114.34±8% |     47691.38±5% |     11.16±6% |      128.20±6%</code></pre>
+        <pre ng-non-bindable><code class="language-markup bigger">      32047.94 |         47624.71 |        10.89 |        121.68</code></pre>
 
         <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.3.0</p>
-        <pre ng-non-bindable><code class="language-markup">
-  43027.89±19% |     82943.84±35% |     12.57±36% |      146.04±7%</code></pre>
+        <pre ng-non-bindable><code class="language-markup bigger">      42849.36 |         79090.07 |         9.98 |        154.23</code></pre>
       </div>
     </section>
 
     <section data-bespoke-state="code">
       <div class="content">
-        <h3>ui-grid vs ng-table vs ng-tasty</h3>
+        <h3><code>ui-grid</code> vs <code>ng-table</code> vs <code>ng-tasty</code></h3>
         <pre ng-non-bindable><code class="language-javascript">yo benchpress:external angular-ui-grid
 
 yo benchpress:external ng-table
 
 yo benchpress:external ng-tasty
 </code></pre>
-        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/angular-ui-grid/benchmark.spec.js
+        <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractor.conf.js --specs benchmarks/angular-ui-grid/benchmark.spec.js
 
-protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-table/benchmark.spec.js
+protractor benchmarks/protractor.conf.js --specs benchmarks/ng-table/benchmark.spec.js
 
-protractor benchmarks/protractorBenchmarks.conf.js --specs benchmarks/ng-tasty/benchmark.spec.js
+protractor benchmarks/protractor.conf.js --specs benchmarks/ng-tasty-0-5-0/benchmark.spec.js
 </code></pre>
       </div>
     </section>
 
     <section data-bespoke-state="code">
       <div class="content">
-        <h4>Running Benchpress on an ngTasty large table</h4>
+        <h4>Running Benchpress on a large table</h4>
         
-        <p style="font-size:18px;text-align:left;padding-left:32px">angular-ui-grid</p>
-        <pre ng-non-bindable><code class="language-markup">
-      gcAmount | gcAmountInScript |       render |         script
-============== | ================ | ============ | ==============
-   2100.89±158% |        2100.89±158% |    23.84±33% |      78.91±11%</code></pre>
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">angular-ui-grid (v3.0.0-rc.20)</h5>
+        <pre ng-non-bindable><code class="language-markup bigger">      gcAmount | gcAmountInScript |       render |        script
+============== | ================ | ============ | =============
+       4720.29 |          4720.29 |        18.17 |         59.98</code></pre>
         
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-table</p>
-        <pre ng-non-bindable><code class="language-markup">
-  10227.47±65% |     8797.95±81% |     9.77±18% |      44.44±13%</code></pre>
+        <br />
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-table (v0.5.3)</h5>
+        <pre ng-non-bindable><code class="language-markup bigger">      10280.07 |          8845.68 |         9.51 |         41.47</code></pre>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty</p>
-        <pre ng-non-bindable><code class="language-markup">
-  753.51±201% |     0.00±NaN% |     10.16±33% |      9.32±12%</code></pre>
+        <br />
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-tasty (v0.5.0)</h5>
+        <pre ng-non-bindable><code class="language-markup bigger">        753.51 |             0.00 |        10.16 |          9.32</code></pre>
+      </div>
+    </section>
+
+    <section data-bespoke-state="full-text">
+      <div class="content">
+        <h3>To recap</h3>
+        <ul>
+          <li>1) compare api implementation</li>
+          <li>2) compare versions</li>
+          <li>3) compare third part solutions</li>
+        </ul>
       </div>
     </section>
     
