@@ -178,6 +178,17 @@ create benchmarks/ng-tasty/benchmark.spec.js</code></pre>
 
     <section data-bespoke-state="code">
       <div class="content">
+        <h3>Prepare a benchmark on the dist</h3>
+        <p style="text-align:left">To see the case we are testing we can run</p>
+        <pre ng-non-bindable><code class="language-javascript">http-server -p 8000</code></pre>
+        <br />
+        <p style="text-align:left">And visit</p>
+        <pre ng-non-bindable><code class="language-javascript">http://localhost:8000/benchmarks/ng-tasty/</code></pre>
+      </div>
+    </section>
+
+    <section data-bespoke-state="code">
+      <div class="content">
         <h2>Running a basic benchmark</h2>
         <pre ng-non-bindable><code class="language-javascript">protractor benchmarks/protractor.conf.js --specs benchmarks/ng-tasty/benchmark.spec.js
 </code></pre>
@@ -219,17 +230,6 @@ create benchmarks/ng-tasty/benchmark.spec.js</code></pre>
         <pre ng-non-bindable><code class="language-markup">&lt;div tasty-table bind-resource=&quot;resource&quot;&gt; ... &lt;/div&gt;</code></pre>
         <pre ng-non-bindable><code class="language-markup">&lt;div tasty-table bind-resource=&quot;resource&quot; watch-resource=&quot;collection&quot;&gt; ... &lt;/div&gt;</code></pre>
         <pre ng-non-bindable><code class="language-markup">&lt;div tasty-table bind-resource=&quot;resource&quot; watch-resource=&quot;equality&quot;&gt; ... &lt;/div&gt;</code></pre>
-      </div>
-    </section>
-
-    <section data-bespoke-state="code">
-      <div class="content">
-        <h3>Prepare a benchmark on the dist</h3>
-        <p style="text-align:left">To see the case we are testing we can run</p>
-        <pre ng-non-bindable><code class="language-javascript">http-server -p 8000</code></pre>
-        <br />
-        <p style="text-align:left">And visit</p>
-        <pre ng-non-bindable><code class="language-javascript">http://localhost:8000/benchmarks/dist/</code></pre>
       </div>
     </section>
 
@@ -288,18 +288,18 @@ create benchmarks/ng-tasty/benchmark.spec.js</code></pre>
       <div class="content">
         <h4>Running Benchpress on an ngTasty large table</h4>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.5.1 (master)</p>
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-tasty 0.5.1 (master)</h5>
         <pre ng-non-bindable><code class="language-markup bigger">      gcAmount | gcAmountInScript |       render |        script
 ============== | ================ | ============ | =============
       51503.28 |             0.00 |        11.08 |        172.02</code></pre>
         
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.5.0</p>
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-tasty 0.5.0</h5>
         <pre ng-non-bindable><code class="language-markup bigger">      29358.08 |         38678.04 |        11.37 |        108.99</code></pre>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.4.0</p>
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-tasty 0.4.0</h5>
         <pre ng-non-bindable><code class="language-markup bigger">      32047.94 |         47624.71 |        10.89 |        121.68</code></pre>
 
-        <p style="font-size:18px;text-align:left;padding-left:32px">ng-tasty 0.3.0</p>
+        <h5 style="font-size:18px;text-align:left;margin-bottom:0">ng-tasty 0.3.0</h5>
         <pre ng-non-bindable><code class="language-markup bigger">      42849.36 |         79090.07 |         9.98 |        154.23</code></pre>
       </div>
     </section>
